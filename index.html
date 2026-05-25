@@ -3,271 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة الإنتاج والمالية - مكتب عمر</title>
+    <title>CASASOLUTION - مكتب عصري أنيق يُركّب ويُفكّك في ثوانِ</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>📊 لوحة إدارة الإنتاج والمالية</h1>
-        <p class="subtitle">مكتب قابل للطي - نظام حساب السيولة والأرباح والمخزون</p>
-    </header>
 
-    <nav class="tabs">
-        <button class="tab active" data-tab="production">🏭 الإنتاج</button>
-        <button class="tab" data-tab="sales">📈 المبيعات</button>
-        <button class="tab" data-tab="stock">📦 المخزون</button>
-        <button class="tab" data-tab="cash">💰 السيولة</button>
-        <button class="tab" data-tab="profit">🏆 الأرباح</button>
-    </nav>
+<!-- القسم 1: HERO SECTION -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">★★★★★ +500 زبون راضي</div>
+        <h1>مكتب عصري أنيق<br>يُركّب ويُفكّك في ثوانِ</h1>
+        <p class="hero-subtitle">تصميم سكندنافي + خشب زان طبيعي | صناعة جزائرية 100%</p>
+        <div class="hero-price">
+            <span class="price-old">12,000 د.ج</span>
+            <span class="price-new">8,500 د.ج</span>
+        </div>
+        <a href="#order" class="btn-cta">اطلب الآن - الدفع عند الاستلام</a>
+        <div class="hero-features">
+            <span>🚚 توصيل 24-48 ساعة</span>
+            <span>💳 الدفع عند الاستلام</span>
+            <span>🎁 هدية مجانية</span>
+        </div>
+    </div>
+</section>
 
-    <main>
-        <!-- Production Tab -->
-        <section id="production" class="tab-content active">
-            <h2>🏭 حاسبة تكلفة الإنتاج</h2>
-            <div class="card">
-                <h3>عدد المكاتب في الدورة</h3>
-                <div class="input-group">
-                    <label>عدد المكاتب:</label>
-                    <input type="number" id="numDesks" value="16" min="1">
+<!-- القسم 2: TRUST BAR -->
+<section class="trust-bar">
+    <div class="container">
+        <div class="trust-items">
+            <div class="trust-item">✅ صناعة جزائرية</div>
+            <div class="trust-item">✅ خشب طبيعي</div>
+            <div class="trust-item">✅ يتفكك بسهولة</div>
+            <div class="trust-item">✅ ضمان التوصيل</div>
+        </div>
+    </div>
+</section>
+
+<!-- القسم 3: PROBLEM AGITATION -->
+<section class="problems">
+    <div class="container">
+        <h2>هل تعاني من واحدة من هذه المشاكل؟</h2>
+        <div class="problems-list">
+            <div class="problem-item">❌ تخدم على طاولة الماكلة أو السرير وظهرك يوجعك؟</div>
+            <div class="problem-item">❌ شقتك صغيرة وما تلقاش مكتب يدخل بلا ما يزحم؟</div>
+            <div class="problem-item">❌ الأثاث في الجزائر كله تقليدي وثقيل وما يتفككش؟</div>
+            <div class="problem-item">❌ تحب ديكور عصري بصح ما تلقاش حاجة تشبه Pinterest بسعر معقول؟</div>
+            <div class="problem-item">❌ تنقلت أو رايح تتنقل وخايف من الأثاث الثقيل؟</div>
+        </div>
+        <p class="problems-cta">👇 الحل موجود...</p>
+    </div>
+</section>
+
+<!-- القسم 4: SOLUTION -->
+<section class="solution">
+    <div class="container">
+        <h2>الحل: مكتب سكندنافي يجمع بين الأناقة والعملية</h2>
+        <div class="features-list">
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>تصميم Scandinave أنيق</strong>
+                    <p>بيتك يبان كأنه من Pinterest</p>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>تفصيل التكاليف (تلقائي حسب عدد المكاتب)</h3>
-                <table id="costTable">
-                    <thead>
-                        <tr><th>البند</th><th>الحساب</th><th>المبلغ (دج)</th></tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot>
-                        <tr class="total-row"><td>إجمالي تكلفة الإنتاج</td><td></td><td id="totalCost">0</td></tr>
-                        <tr class="unit-row"><td>تكلفة المكتب الواحد</td><td></td><td id="unitCost">0</td></tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-
-        <!-- Sales Tab -->
-        <section id="sales" class="tab-content">
-            <h2>📈 قمع المبيعات</h2>
-            <div class="card">
-                <h3>معطيات الإعلان</h3>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>تكلفة الليد ($):</label>
-                        <input type="number" id="cpaLead" value="3" step="0.5" min="0.5">
-                    </div>
-                    <div class="input-group">
-                        <label>سعر الدولار (دج):</label>
-                        <input type="number" id="dollarRate" value="260" min="1">
-                    </div>
-                    <div class="input-group">
-                        <label>نسبة التأكيد (%):</label>
-                        <input type="number" id="confirmRate" value="70" min="1" max="100">
-                    </div>
-                    <div class="input-group">
-                        <label>نسبة التوصيل (%):</label>
-                        <input type="number" id="deliveryRate" value="70" min="1" max="100">
-                    </div>
-                    <div class="input-group">
-                        <label>سعر البيع (دج):</label>
-                        <input type="number" id="sellPrice" value="7900" min="1">
-                    </div>
-                    <div class="input-group">
-                        <label>تكلفة الإرجاع (دج):</label>
-                        <input type="number" id="returnCost" value="700" min="0">
-                    </div>
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>يتركب ويتفكك في 2 دقيقة</strong>
+                    <p>تنقله وين ما تحب</p>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>نتائج القمع</h3>
-                <div class="funnel">
-                    <div class="funnel-step" id="funnelLeads">
-                        <span class="funnel-label">الليدات المطلوبة</span>
-                        <span class="funnel-value">0</span>
-                    </div>
-                    <div class="funnel-arrow">↓</div>
-                    <div class="funnel-step" id="funnelConfirmed">
-                        <span class="funnel-label">طلبيات مؤكدة</span>
-                        <span class="funnel-value">0</span>
-                    </div>
-                    <div class="funnel-arrow">↓</div>
-                    <div class="funnel-step" id="funnelDelivered">
-                        <span class="funnel-label">موصلة فعلياً</span>
-                        <span class="funnel-value">0</span>
-                    </div>
-                    <div class="funnel-arrow">↓</div>
-                    <div class="funnel-step funnel-return" id="funnelReturned">
-                        <span class="funnel-label">مرجعات</span>
-                        <span class="funnel-value">0</span>
-                    </div>
-                </div>
-                <div class="summary-box" id="adCostSummary"></div>
-            </div>
-        </section>
-
-        <!-- Stock Tab -->
-        <section id="stock" class="tab-content">
-            <h2>📦 إدارة المخزون</h2>
-            <div class="card">
-                <h3>حركة المخزون</h3>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>مخزون أول المدة:</label>
-                        <input type="number" id="stockStart" value="0" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label>إنتاج الدورة:</label>
-                        <input type="number" id="stockProduced" value="16" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label>مرسلة للتوصيل:</label>
-                        <input type="number" id="stockSent" value="16" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label>مرجعات مستلمة:</label>
-                        <input type="number" id="stockReturned" value="0" min="0">
-                    </div>
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>خشب زان طبيعي + MDF مطفي</strong>
+                    <p>جودة تحسها من أول لمسة</p>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>ملخص المخزون</h3>
-                <div class="stock-summary">
-                    <div class="stock-item">
-                        <span class="stock-label">المخزون الحالي:</span>
-                        <span class="stock-value" id="currentStock">0</span>
-                        <span>وحدة</span>
-                    </div>
-                    <div class="stock-item">
-                        <span class="stock-label">قيمة المخزون:</span>
-                        <span class="stock-value" id="stockValue">0</span>
-                        <span>دج</span>
-                    </div>
-                    <div class="stock-item">
-                        <span class="stock-label">في طريق التوصيل:</span>
-                        <span class="stock-value" id="inTransit">0</span>
-                        <span>وحدة</span>
-                    </div>
-                    <div class="stock-item">
-                        <span class="stock-label">دوران المخزون:</span>
-                        <span class="stock-value" id="stockTurnover">0</span>
-                        <span>يوم</span>
-                    </div>
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>مقاسان: 90 سم أو 120 سم</strong>
+                    <p>يدخل حتى في أصغر مساحة</p>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>سجل الدورات</h3>
-                <div class="cycle-log">
-                    <button id="addCycleBtn" class="btn-primary">+ إضافة دورة جديدة</button>
-                    <table id="cycleTable">
-                        <thead>
-                            <tr><th>#</th><th>التاريخ</th><th>إنتاج</th><th>مرسل</th><th>موصل</th><th>مرجع</th><th>الحالة</th></tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>خفيف وسهل التنظيف</strong>
+                    <p>تحركه بيد وحدة</p>
                 </div>
             </div>
-        </section>
-
-        <!-- Cash Flow Tab -->
-        <section id="cash" class="tab-content">
-            <h2>💰 السيولة المالية</h2>
-            <div class="card">
-                <h3>معطيات السيولة</h3>
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label>رأس المال المتاح (دج):</label>
-                        <input type="number" id="availableCash" value="140000" min="0">
-                    </div>
-                    <div class="input-group">
-                        <label>مدة التحصيل (أيام):</label>
-                        <input type="number" id="collectionDays" value="7" min="1">
-                    </div>
-                    <div class="input-group">
-                        <label>عدد الدورات/الشهر:</label>
-                        <input type="number" id="cyclesPerMonth" value="4" min="1" max="8">
-                    </div>
-                    <div class="input-group">
-                        <label>الميزانية اليومية للإعلان (دج):</label>
-                        <input type="number" id="dailyAdBudget" value="2000" min="0">
-                    </div>
+            <div class="feature-item">
+                <span class="feature-icon">✅</span>
+                <div>
+                    <strong>صناعة جزائرية 100%</strong>
+                    <p>IKEA الجزائري بسعر أقل</p>
                 </div>
             </div>
+        </div>
+        <a href="#order" class="btn-cta">اطلب الآن - 8,500 د.ج</a>
+    </div>
+</section>
 
-            <div class="card">
-                <h3>تدفق السيولة الشهري</h3>
-                <div class="cashflow-timeline" id="cashflowTimeline"></div>
+<!-- القسم 5: SOCIAL PROOF -->
+<section class="testimonials">
+    <div class="container">
+        <h2>❤️ شهادات زبائننا</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"راه وصل المكتب، شكرا جزيلا، أفضل من الصور الله يبارك ❤️"</p>
+                <span class="testimonial-author">- زبون من البليدة</span>
             </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"المصداقية والجودة والتغليف ممتازين، شكرا على الهدية"</p>
+                <span class="testimonial-author">- زبونة من وهران</span>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p>"ولدي من وقت ما جبتلو المكتب تبدل، يقرا كل يوم عليه"</p>
+                <span class="testimonial-author">- أب من سطيف</span>
+            </div>
+        </div>
+        <div class="testimonials-stats">
+            <span>★★★★★ +500 طلب مؤكد</span>
+            <span>0% شكاوي | 100% رضا</span>
+        </div>
+    </div>
+</section>
 
-            <div class="card">
-                <h3>ملخص السيولة</h3>
-                <div class="cash-summary">
-                    <div class="cash-item positive">
-                        <span>الأموال الداخلة (الشهر):</span>
-                        <span id="cashIn">0 دج</span>
-                    </div>
-                    <div class="cash-item negative">
-                        <span>الأموال الخارجة (الشهر):</span>
-                        <span id="cashOut">0 دج</span>
-                    </div>
-                    <div class="cash-item">
-                        <span>أموال معلقة (عند شركة التوصيل):</span>
-                        <span id="cashPending">0 دج</span>
-                    </div>
-                    <div class="cash-item highlight">
-                        <span>السيولة الفعلية المتاحة:</span>
-                        <span id="netCash">0 دج</span>
-                    </div>
+<!-- القسم 6: PRODUCT DETAILS -->
+<section class="details">
+    <div class="container">
+        <h2>📐 تفاصيل المكتب</h2>
+        <div class="details-grid">
+            <div class="details-specs">
+                <h3>📏 المقاسات:</h3>
+                <ul>
+                    <li>المقاس الكبير: 120 × 60 × 76 سم</li>
+                    <li>المقاس الصغير: 90 × 60 × 76 سم</li>
+                </ul>
+                <h3>🪵 مواد الصنع:</h3>
+                <ul>
+                    <li>السطح: MDF أبيض/أسود مطفي</li>
+                    <li>الأرجل: خشب زان طبيعي (Hetre)</li>
+                    <li>التثبيت: مسامير معدنية متينة</li>
+                </ul>
+                <h3>🎨 الألوان المتاحة:</h3>
+                <div class="color-options">
+                    <span class="color-white">أبيض</span>
+                    <span class="color-black">أسود</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Profit Tab -->
-        <section id="profit" class="tab-content">
-            <h2>🏆 حساب الأرباح الشهرية</h2>
-            <div class="card profit-card">
-                <h3>ملخص الربح والخسارة (P&L)</h3>
-                <table id="profitTable">
-                    <tbody>
-                        <tr class="income"><td>💰 الإيرادات</td><td id="plRevenue">0 دج</td></tr>
-                        <tr class="expense"><td>🔻 تكلفة الإنتاج</td><td id="plProduction">0 دج</td></tr>
-                        <tr class="expense"><td>🔻 تكلفة الإعلانات</td><td id="plAds">0 دج</td></tr>
-                        <tr class="expense"><td>🔻 تكلفة الإرجاعات</td><td id="plReturns">0 دج</td></tr>
-                        <tr class="profit-row"><td>✅ صافي الربح</td><td id="plProfit">0 دج</td></tr>
-                        <tr><td>📊 هامش الربح</td><td id="plMargin">0%</td></tr>
-                        <tr><td>💵 ربح المكتب الواحد (الموصل)</td><td id="plPerUnit">0 دج</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card">
-                <h3>🎯 محاكاة الأهداف</h3>
-                <div class="input-group">
-                    <label>الربح المطلوب شهرياً (دج):</label>
-                    <input type="number" id="targetProfit" value="100000" min="0">
+<!-- القسم 7: ORDER FORM -->
+<section class="order" id="order">
+    <div class="container">
+        <h2>🛒 اطلب الآن</h2>
+        <form class="order-form" id="orderForm">
+            <div class="form-group">
+                <label>اختر المقاس:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="size" value="90" checked>
+                        <span>60×90 سم</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="size" value="120">
+                        <span>60×120 سم</span>
+                    </label>
                 </div>
-                <div class="target-result" id="targetResult"></div>
             </div>
-
-            <div class="card">
-                <h3>📊 مقارنة السيناريوهات</h3>
-                <table id="scenarioTable">
-                    <thead>
-                        <tr><th>السيناريو</th><th>الدورات</th><th>السعر</th><th>التأكيد</th><th>التوصيل</th><th>CPA</th><th>الربح</th></tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="form-group">
+                <label>اختر اللون:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="color" value="white" checked>
+                        <span>⚪ أبيض</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="color" value="black">
+                        <span>⚫ أسود</span>
+                    </label>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="price-summary">
+                <div class="price-row"><span>سعر المكتب:</span><span>8,500 د.ج</span></div>
+                <div class="price-row"><span>التوصيل:</span><span>800 د.ج</span></div>
+                <div class="price-row total"><span>المجموع:</span><span>9,300 د.ج</span></div>
+            </div>
+            <div class="form-group">
+                <input type="text" name="name" placeholder="الاسم الكامل" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+            </div>
+            <div class="form-group">
+                <select name="wilaya" required>
+                    <option value="">اختر ولايتك</option>
+                    <option value="الجزائر">الجزائر</option>
+                    <option value="وهران">وهران</option>
+                    <option value="قسنطينة">قسنطينة</option>
+                    <option value="عنابة">عنابة</option>
+                    <option value="سطيف">سطيف</option>
+                    <option value="البليدة">البليدة</option>
+                    <option value="تلمسان">تلمسان</option>
+                    <option value="باتنة">باتنة</option>
+                    <option value="بجاية">بجاية</option>
+                    <option value="تيزي وزو">تيزي وزو</option>
+                    <option value="أخرى">ولاية أخرى</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" name="commune" placeholder="البلدية">
+            </div>
+            <button type="submit" class="btn-cta btn-submit">تأكيد الطلب - الدفع عند الاستلام</button>
+            <div class="form-trust">
+                <span>🔒 معلوماتك آمنة 100%</span>
+                <span>📞 نتصلو بيك للتأكيد خلال ساعة</span>
+            </div>
+        </form>
+    </div>
+</section>
 
-    <footer>
-        <p>🔧 أداة إدارة مالية مخصصة لمشروع مكتب عمر | بُنيت بواسطة Kiro</p>
-    </footer>
+<!-- القسم 8: GUARANTEES -->
+<section class="guarantees">
+    <div class="container">
+        <h2>🛡️ ضماناتنا</h2>
+        <div class="guarantees-grid">
+            <div class="guarantee-item">
+                <span class="guarantee-icon">🚚</span>
+                <strong>ضمان التوصيل السليم</strong>
+                <p>تغليف محكم + نتحملو المسؤولية</p>
+            </div>
+            <div class="guarantee-item">
+                <span class="guarantee-icon">💳</span>
+                <strong>الدفع عند الاستلام</strong>
+                <p>تشوفها، تتأكد، وبعدين تخلص</p>
+            </div>
+            <div class="guarantee-item">
+                <span class="guarantee-icon">📦</span>
+                <strong>تفتحها قبل ما تدفع</strong>
+                <p>لو ما عجبتكش، ترجعها</p>
+            </div>
+            <div class="guarantee-item">
+                <span class="guarantee-icon">🎁</span>
+                <strong>هدية مجانية</strong>
+                <p>2 حامل هاتف مع كل طلب</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script src="app.js"></script>
+<!-- القسم 9: FAQ -->
+<section class="faq">
+    <div class="container">
+        <h2>❓ أسئلة شائعة</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">كيفاش يتركب المكتب؟</button>
+                <div class="faq-answer">
+                    <p>يتركب في 2 دقيقة بدون أدوات معقدة. الأرجل تتثبت بمسامير جاهزة، تلفها بيدك وخلاص.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">واش الجودة فعلاً زينة؟</button>
+                <div class="faq-answer">
+                    <p>خشب زان طبيعي + MDF عالي الجودة. +500 زبون راضي يشهد. والدليل: "أفضل من الصور" - أكثر تعليق نسمعوه.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">شحال يوصل التوصيل؟</button>
+                <div class="faq-answer">
+                    <p>24-48 ساعة لأغلب الولايات. 800 د.ج توصيل لكل الولايات.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">واش نقدر نرجعها لو ما عجبتنيش؟</button>
+                <div class="faq-answer">
+                    <p>نعم! تفتحها وتتأكد قبل ما تدفع. لو ما عجبتكش = ترجعها بدون مشاكل.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">واش تتحمل الوزن؟</button>
+                <div class="faq-answer">
+                    <p>نعم! الهيكل الخشبي + المسامير المعدنية تتحمل حتى 50 كغ بسهولة.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">واش المقاس يدخل في شقتي؟</button>
+                <div class="faq-answer">
+                    <p>المقاس الصغير 90 سم يدخل في أي مساحة. والكبير 120 سم يكفي للابتوب + شاشة + أغراض.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- القسم 10: FINAL CTA -->
+<section class="final-cta">
+    <div class="container">
+        <div class="urgency-badge">⏰ عرض محدود: توصيل مجاني لأول 20 طلب اليوم</div>
+        <h2>اطلب مكتبك الآن</h2>
+        <div class="final-value">
+            <span>💰 8,500 د.ج فقط</span>
+            <span>🎁 + هدية مجانية</span>
+            <span>🚚 + توصيل لكل الولايات</span>
+            <span>💳 + الدفع عند الاستلام</span>
+        </div>
+        <a href="#order" class="btn-cta btn-final">اطلب الآن قبل نفاد الكمية</a>
+        <p class="final-testimonial">★★★★★ "أفضل من الصور، الله يبارك" - آخر زبون</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>CASASOLUTION © 2024 - صناعة جزائرية بتصميم عالمي</p>
+        <p>📞 للاستفسار: تواصل معنا عبر الرسائل</p>
+    </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
